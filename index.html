@@ -1,0 +1,39 @@
+<html ng-app="myApp">
+
+<head>
+	<title>index</title>
+	<link href="app/styles/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		
+		<div ng-controller="headerCtrl as hc" ng-include="'app/header/header.tpl.html'">
+
+
+		</div>
+
+
+	</div>
+
+	
+	<script src="app/common/common.js"></script>
+	<script src="app/common/commonDateOfBirth.js"></script>
+	<script src="app/login/login.js"></script>
+	<script src="app/login/loginCtrl.js"></script>
+	<script src="app/register/register.js"></script>
+	<script src="app/register/registerCtrl.js"></script>
+	<script src="app/products/products.js"></script>
+	<script src="app/products/productsCtrl.js"></script>
+	<script src="app/header/header.js"></script>
+	<script src="app/header/headerCtrl.js"></script>
+	<script src="app/app.js"></script>
+</body>
+
+</html>
