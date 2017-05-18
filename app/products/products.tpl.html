@@ -2,30 +2,33 @@
 	<button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModalRegister">Add User</button><br><br>
 	<hr>
 	<h2>All User</h2>
+	<hr>
 	<div class="alert alert-info" ng-if="pc.message">
-		<a href="#" class="close"  aria-label="close" ng-click="pc.clearMessage()">&times;</a>
+		<a href="#" class="close" aria-label="close" ng-click="pc.clearMessage()">&times;</a>
 		<strong>Info!</strong> {{pc.message}}
 	</div>
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Sr No.</th>
+				
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Username</th>
+				<th>Picture</th>
 				<th>Edit</th>
 				<th>Delet</th>
+				<th>AddToCart</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr ng-repeat="user in pc.users">
-				<th scope="row">{{$index+1}}</th>
-				<td>{{user.firstName}}</td>
+				<td >{{user.firstName}}</td>
 				<td>{{user.lastName}}</td>
 				<td>{{user.userName}}</td>
-				<td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalEdit" ng-click="pc.selectUser(user)">Edit</button></td>
-				<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelet" ng-click="pc.selectUser(user)">Delet</button></td>
-
+				<td><img id="user_images" style="width:50px;height:50px;" src="./images/{{user.picture}}"></td>
+				<td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalEdit" ng-click="pc.selectUser(user)">Edit</button></td>
+				<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelet" ng-click="pc.deletUser(user.firstName)">Delet</button></td>
+				<td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalView" ng-click="pc.addToCart(user)">AddToCart</button></td>
 			</tr>
 
 		</tbody>
@@ -52,14 +55,14 @@
 								<label for="firstName" class="col-sm-12 control-label">Full Name</label>
 								<div class="col-sm-4">
 									<input type="text" id="firstName" placeholder="firstName" ng-model="pc.newUser.firstName" class="form-control" autofocus>
-									<span class="help-block">Last Name, First Name, eg.: Smith, Harry</span>
+									<span class="help-block">First Name, eg.: Smith, Harry</span>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="firstName" class="col-sm-12 control-label">last Name</label>
 								<div class="col-sm-4">
 									<input type="text" id="firstName" placeholder="lastName" ng-model="pc.newUser.lastName" class="form-control" autofocus>
-									<span class="help-block">Last Name, First Name, eg.: Smith, Harry</span>
+									<span class="help-block">Last Name, eg.: Smith, Harry</span>
 								</div>
 							</div>
 							<div class="form-group">
@@ -182,14 +185,16 @@
 				</div>
 				<div class="modal-body">
 					<!-- register form -->
-					<strong style="color:red">you want want to delet..{{pc.clickedUser.firstName}} all information</strong>
+					<strong style="color:red">you want want to delet..{{pc.deletUser.firstName}} all information</strong>
 
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="pc.deletUser()">Yes</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal" >Yes</button>
 					<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
 				</div>
 			</div>
 
 		</div>
 	</div>
+
+	<!-- ========== view user information ==========-->
