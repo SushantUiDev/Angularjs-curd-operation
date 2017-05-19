@@ -10,64 +10,64 @@
 		vm.message="";
 		vm.users = [
 			{
-				firstName: "sushant",
-				lastName: "paikrao",
-				userName: "sushantpaikrao1990@gmail.com",
-				picture:"1.jpg"
+				"firstName": "sushant",
+				"lastName": "paikrao",
+				"userName": "sushantpaikrao1990@gmail.com",
+				"picture":"1.jpg"
 			},
 			{
-				firstName: "vicky",
-				lastName: "paikrao",
-				userName: "sushantpaikrao1990@gmail.com",
-				picture:"2.jpg"
+				"firstName": "vicky",
+				"lastName": "paikrao",
+				"userName": "sushantpaikrao1990@gmail.com",
+				"picture":"2.jpg"
 			},
 			{
-				firstName: "vicky1",
-				lastName: "paikrao1",
-				userName: "sushantpaikrao1990@gmail.com",
-				picture:"3.jpg"
+				"firstName": "nikhil",
+				"lastName": "rathod",
+				"userName": "nikhilrathod@gmail.com",
+				"picture":"3.jpg"
 			},
 			{
-				firstName: "sushant",
-				lastName: "paikrao",
-				userName: "sushantpaikrao1990@gmail.com",
-				picture:"1.jpg"
+				"firstName": "sushant",
+				"lastName": "paikrao",
+				"userName": "sushantpaikrao1990@gmail.com",
+				"picture":"1.jpg"
 			},
 			{
-				firstName: "vicky",
-				lastName: "paikrao",
-				userName: "sushantpaikrao1990@gmail.com",
-				picture:"2.jpg"
+				"firstName": "vicky",
+				"lastName": "singham",
+				"userName": "vickysingham@gmail.com",
+				"picture":"2.jpg"
 			},
 			{
-				firstName: "vicky1",
-				lastName: "paikrao1",
-				userName: "sushantpaikrao1990@gmail.com",
-				picture:"3.jpg"
+				"firstName": "Akash",
+				"lastName": "patil",
+				"userName": "Akashpatil@gmail.com",
+				"picture":"3.jpg"
 			},
 			{
-				firstName: "vicky1",
-				lastName: "paikrao1",
-				userName: "sushantpaikrao1990@gmail.com",
-				picture:"3.jpg"
+				"firstName": "mayuri",
+				"lastName": "gajbhiye",
+				"userName": "mayurigajbhiye@gmail.com",
+				"picture":"3.jpg"
 			},
 			{
-				firstName: "sushant",
-				lastName: "paikrao",
-				userName: "sushantpaikrao1990@gmail.com",
-				picture:"1.jpg"
+				"firstName": "ravi",
+				"lastName": "paikrao",
+				"userName": "ravipaikrao@gmail.com",
+				"picture":"1.jpg"
 			},
 			{
-				firstName: "vicky",
-				lastName: "paikrao",
-				userName: "sushantpaikrao1990@gmail.com",
-				picture:"2.jpg"
+				"firstName": "emma",
+				"lastName": "warght",
+				"userName": "emmawarghtgmail.com",
+				"picture":"2.jpg"
 			},
 			{
-				firstName: "vicky1",
-				lastName: "paikrao1",
-				userName: "sushantpaikrao1990@gmail.com",
-				picture:"3.jpg"
+				"firstName": "reema",
+				"lastName": "paikrao1",
+				"userName": "reemapaikrao1@gmail.com",
+				"picture":"3.jpg"
 			}
 		 ]
 		
@@ -99,20 +99,26 @@
 			
 		}
 		*/
-		 vm.deletUser = function(name){
-          var index = -1;
-          var comArr = eval( vm.users );
-          for( var i = 0; i < comArr.length; i++ ) {
-                if( comArr[i].name === name ) {
-                    index = i;
-                    break;
-                 }
-          }
-          if( index === -1 ) {
-               alert( "Something gone wrong" );
-          }
-          vm.users.splice( index, 1 );
-       };
+		vm.deletUser=function(user){
+			console.log(user);
+			//vm.index=-1;
+			 vm.index = -1;
+					var comArr = eval(vm.users);
+					for (var i = 0; i < comArr.length; i++) {
+						if (comArr[i].firstName === user.firstName) {
+							vm.index = i;
+							console.log(vm.index);
+							break;
+						}
+					}
+					if (vm.index === -1) {
+						console.log(vm.index);
+						alert("Something gone wrong");
+					}
+					vm.users.splice(vm.index, 1);
+			vm.message="you delet user successigully..";
+		}
+		
 		vm.addToCart=function(args){
 			console.log(args);
 			// $rootScope.$broadcast("ITEM-ADDED", item);
