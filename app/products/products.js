@@ -1,12 +1,11 @@
 (function(){
-
 	angular.module("products",[]);
+	
 	angular.module("products")
 	.config(function(){
-		console.log("i am products module config method..")
-		
+		console.log("i am products module config()...");
 	})
 	.run(function(){
-		console.log("i am products module run method...");
+		console.log("i am products module run method..");
 	})
 })();

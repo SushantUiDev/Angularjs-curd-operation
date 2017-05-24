@@ -1,6 +1,5 @@
 <!-- Static navbar -->
-
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default ">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -14,18 +13,320 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li ng-repeat="nav in hc.navBar" ng-click="hc.loadView(nav)"><a href="#" style="">{{nav}}</a></li>
-				<li><button type="button" class="btn btn-default btn-lg" style="float:left">
-          <span class="glyphicon glyphicon-shopping-cart"></span> {{hc.cartProducts.length}}
-        </button>
+				<li>
 
 				</li>
+				<button type="button" class="btn btn-default btn-lg" style="position:relative;margin-left:500px;" data-toggle="modal" data-target="#myModalView" ng-click="showProduct()">
+                   <span class="glyphicon glyphicon-shopping-cart"></span> {{hc.cartProducts.length}}
+                   </button>
 			</ul>
-
-
-
 		</div>
 		<!--/.nav-collapse -->
 	</div>
 	<!--/.container-fluid -->
 </nav>
+
+<div class="modal fade" id="myModalView" role="dialog" style="background-color:pink;opacity:0.8">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title" style="color:red;">Cart Items</h4>
+				
+			</div>
+			<div class="modal-body" id="myModalView">
+				<div id="notifications_glyph" class="open">
+					<a href="#" ng-click="hc.showMore()">ShowMore</a>
+					<div class="dropdown-menu" role="menu" id="notifications-dropdown">
+						
+						<div id="header-notifications-heading" style="color:blue">
+							Notifications
+						</div>
+						<ul id="header-notifications-body" >
+							<li class="individual-panel-notification not_clicked-notification" ng-repeat="cart in hc.cartProducts">
+								<a href="/notification/click/1641335/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<img src="./images/Camera/canon/{{cart.picture}}" width="50px" height="50px" style="border-radius:100px">
+											<h4>{{cart.Name}}</h4>
+											<div>{{cart.description}}</div>
+											<p>23 May'17 | 02:30 PM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<!--<li class="individual-panel-notification clicked-notification">
+								<a href="/notification/click/1616610/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to web development internship at Geepay in Pune. </h4>
+											<p>22 May'17 | 12:50 PM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+											<img src="/uploads/logo/Geepay_325896.png">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification not_clicked-notification">
+								<a href="/notification/click/1612594/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to web development internship at ZenShanti in Pune. </h4>
+											<p>22 May'17 | 10:15 AM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+											<img src="/uploads/logo/ZenShanti_579443.png">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification not_clicked-notification">
+								<a href="/notification/click/1609891/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to web development internship at Goplayr in Pune. </h4>
+											<p>21 May'17 | 06:25 PM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification not_clicked-notification">
+								<a href="/notification/click/1603552/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to ui/ux design internship at Kkekk Inc in Bangalore. </h4>
+											<p>21 May'17 | 10:30 AM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification clicked-notification">
+								<a href="/notification/click/1573400/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to web development internship at The Right Doctors Healthcare Technologies in Hyderabad. </h4>
+											<p>19 May'17 | 02:40 PM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+											<img src="/uploads/logo/The Right Doctors Healthcare Technologies_980890.png">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification clicked-notification">
+								<a href="/notification/click/1531560/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to web development internship at Redlily in Hyderabad. </h4>
+											<p>17 May'17 | 05:50 PM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+											<img src="/uploads/logo/Redlily_737728.png">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification clicked-notification">
+								<a href="/notification/click/1530505/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to work from home web development internship at IWebbies Web Solution Pvt Ltd. </h4>
+											<p>17 May'17 | 05:36 PM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+											<img src="/uploads/logo/IWebbies Web Solution Pvt Ltd_434030.jpg">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification not_clicked-notification">
+								<a href="/notification/click/1514231/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to php development internship at Giggada Technologies in Pune. </h4>
+											<p>17 May'17 | 11:05 AM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+											<img src="/uploads/logo/Giggada Technologies_209265.png">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification clicked-notification">
+								<a href="/notification/click/1513331/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to work from home web development internship at ATG. </h4>
+											<p>17 May'17 | 10:30 AM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+											<img src="/uploads/logo/ATG_904906.png">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification clicked-notification">
+								<a href="/notification/click/1476323/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to web development internship at CreativeMindz in Hyderabad. </h4>
+											<p>15 May'17 | 02:20 PM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification clicked-notification">
+								<a href="/notification/click/1462129/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to front-end development (javascript) internship at Stichio in Hyderabad. </h4>
+											<p>14 May'17 | 09:45 AM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification clicked-notification">
+								<a href="/notification/click/1460921/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to work from home web development internship at Drivingo. </h4>
+											<p>14 May'17 | 12:25 AM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification clicked-notification">
+								<a href="/notification/click/1419502/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to web development internship at JobsExpertise Consultants in Pune. </h4>
+											<p>11 May'17 | 07:01 PM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+											<img src="/uploads/logo/JobsExpertise Consultants_678499.png">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification clicked-notification">
+								<a href="/notification/click/1323807/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to web development internship at Trendzlink Technology Pvt.Ltd in Pune. </h4>
+											<p>05 May'17 | 04:45 PM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+											<img src="/uploads/logo/Trendzlink Technology Pvt.Ltd_597179.png">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification clicked-notification">
+								<a href="/notification/click/1273168/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to web development internship at V Accurate Design Studios in Pune. </h4>
+											<p>02 May'17 | 02:45 PM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification clicked-notification">
+								<a href="/notification/click/1252978/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to web development internship at Peepstake Pvt.Ltd in Hyderabad. </h4>
+											<p>01 May'17 | 11:50 AM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification not_clicked-notification">
+								<a href="/notification/click/1175958/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to web development internship at EngiStack Private Limited in Pune. </h4>
+											<p>26 Apr'17 | 10:25 AM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+											<img src="/uploads/logo/EngiStack Private Limited_839661.jpeg">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification not_clicked-notification">
+								<a href="/notification/click/1105576/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to web development internship at Technote Software Solution Private Limited in Pune. </h4>
+											<p>21 Apr'17 | 11:05 AM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+										</div>
+									</div>
+								</a>
+							</li>
+
+							<li class="individual-panel-notification clicked-notification">
+								<a href="/notification/click/1081844/in_panel_notification" class="panel-notification-link">
+									<div class="table-row">
+										<div class="table-cell">
+											<h4> Apply to ux/ui design internship at MAQ Software in Hyderabad. </h4>
+											<p>19 Apr'17 | 05:10 PM</p>
+										</div>
+										<div class="table-cell" style="height:30px;width:60px;">
+										</div>
+									</div>
+								</a>
+							</li>    -->
+							<div id="see_more_notifications">View older notifications</div>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>
 <div ng-include="hc.loadTemplate"> </div>

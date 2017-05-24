@@ -1,0 +1,186 @@
+<div ng-controller="usersCtrl as uc">
+	<button type="button" class="btn btn-info btn-lg pull-right" data-toggle="modal" data-target="#myModalRegister">Add User</button><br><br>
+	<br>
+	<div id="custom-search-input">
+		<div class="input-group col-md-12">
+			<input type="text" class="  search-query form-control" placeholder="Search" />
+			<span class="input-group-btn">
+                 <button class="btn btn-danger" type="button">
+                 <span class=" glyphicon glyphicon-search"></span>
+			</button>
+			</span>
+		</div>
+	</div>
+	<hr>
+	<h2>All User</h2>
+	<hr>
+	<div class="alert alert-info"  ng-if="uc.message">
+		<a href="#" class="close" aria-label="close" ng-click="uc.clearMessage()">&times;</a>
+		<strong>Info!</strong> {{uc.message}}
+	</div>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Sr No</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Username</th>
+				<th>Picture</th>
+				<th>Edit</th>
+				<th>Delet</th>
+				<th>AddToCart</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="user in uc.users ">
+				<td>{{$index+1}}</td>
+				<td>{{user.firstName}}</td>
+				<td>{{user.lastName}}</td>
+				<td>{{user.userName}}</td>
+				<td><img id="user_images" style="width:50px;height:50px;" src="./images/{{user.picture}}"></td>
+				<td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalEdit" ng-click="uc.selectUser(user)">Edit</button></td>
+				<td><button type="button" class="btn btn-danger" data-toggle="modal" ng-click="uc.deletUser(user)">Delet</button></td>
+				<td><button type="button" class="btn btn-warning" ng-click="uc.addToCart(user)">AddToCart</button></td>
+			</tr>
+
+		</tbody>
+	</table>
+
+
+	<!--- ========  new register =========-->
+	<!-- Modal -->
+	<div class="modal fade" id="myModalRegister" role="dialog" style="background-color:black;opacity:0.8;">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Modal Header</h4>
+				</div>
+				<div class="modal-body">
+					<!-- register form -->
+					<div class="container">
+						<form class="form-horizontal" role="form">
+							<h2>Registration Form</h2>
+							<div class="form-group">
+								<label for="firstName" class="col-sm-12 control-label">Full Name</label>
+								<div class="col-sm-4">
+									<input type="text" id="firstName" placeholder="firstName" ng-model="uc.newUser.firstName" class="form-control" autofocus>
+									<span class="help-block">First Name, eg.: Smith, Harry</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="firstName" class="col-sm-12 control-label">last Name</label>
+								<div class="col-sm-4">
+									<input type="text" id="firstName" placeholder="lastName" ng-model="uc.newUser.lastName" class="form-control" autofocus>
+									<span class="help-block">Last Name, eg.: Smith, Harry</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email" class="col-sm-12 control-label">Email</label>
+								<div class="col-sm-4">
+									<input type="email" id="email" placeholder="Email" ng-model="uc.newUser.userName" class="form-control">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password" class="col-sm-12 control-label">Password</label>
+								<div class="col-sm-4">
+									<input type="password" id="password" placeholder="Password" ng-model="uc.newUser.password" class="form-control">
+								</div>
+							</div>
+
+
+
+							<div class="form-group">
+								<div class="col-sm-12">
+									<div class="checkbox">
+										<label>
+                                <input type="checkbox" ng-model="uc.newUser.checkbox">I accept <a href="#">terms</a>
+                            </label>
+									</div>
+								</div>
+							</div>
+							<!-- /.form-group -->
+							<div class="form-group">
+								<div class="col-sm-4">
+									<button type="submit" class="btn btn-primary btn-block" ng-click="uc.register()" data-dismiss="modal">Register</button>
+								</div>
+							</div>
+
+						</form>
+						<!-- /form -->
+					</div>
+					<!-- ./container -->
+				</div>
+				<div class="modal-footer">
+
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- =========== Edit user ============-->
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModalEdit" role="dialog" style="background-color:black;opacity:0.8;">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Update User Details</h4>
+				</div>
+				<div class="modal-body">
+					<!-- register form -->
+					<div class="container">
+						<form class="form-horizontal" role="form">
+							<h2>Edit this user</h2>
+							<div class="form-group">
+								<label for="firstName" class="col-sm-12 control-label">First Name</label>
+								<div class="col-sm-4">
+									<input type="text" id="firstName" placeholder="First Name" ng-model="uc.clickedUser.firstName" class="form-control" autofocus>
+									<span class="help-block">First Name, eg.: Smith, Harry</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="firstName" class="col-sm-12 control-label">Last Name</label>
+								<div class="col-sm-4">
+									<input type="text" id="firstName" placeholder="last Name" class="form-control" ng-model="uc.clickedUser.lastName" autofocus>
+									<span class="help-block">Last Name , eg.: Smith, Harry</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email" class="col-sm-12 control-label">Email</label>
+								<div class="col-sm-4">
+									<input type="email" id="email" placeholder="Email" class="form-control" ng-model="uc.clickedUser.userName">
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<div class="col-sm-4">
+									<button type="submit" class="btn btn-primary btn-block" data-dismiss="modal" ng-click="uc.updateUser()">Update</button>
+								</div>
+							</div>
+						</form>
+						<!-- /form -->
+					</div>
+					<!-- ./container -->
+				</div>
+				<div class="modal-footer">
+
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<!-- =========== Edit user ============-->
