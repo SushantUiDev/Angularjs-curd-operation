@@ -1,6 +1,6 @@
 (function(){
 	angular.module("myApp",["angularUtils.directives.dirPagination","products",
-							"header","users","login","register","common","contact"]);
+							"header","users","login","register","common","contact","profile"]);
 	
 	angular.module("myApp")
 	.config(function(){

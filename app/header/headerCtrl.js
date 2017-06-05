@@ -3,13 +3,14 @@
 	function headerCtrlFn($scope,$rootScope) {
 		var vm = this;
 		vm.brandName = "SushantBrand";
-		vm.navBar = ["login", "register", "users","products","contact"];
+		vm.navBar = ["login", "register", "users","products","contact","profile"];
         vm.cartProducts=[];
 		vm.loginTemplate = "app/login/login.tpl.html";
 		vm.registerTemplate = "app/register/register.tpl.html";
 		vm.usersTemplate = "app/users/users.tpl.html";
         vm.productsTemplate="app/products/products.tpl.html";
 		vm.contactTemplate="app/contact/contact.tpl.html";
+		vm.profiletemplate="app/profile/profile.tpl.html";
 		
 		vm.loadView = function (param) {
 			console.log(param);
@@ -23,6 +24,8 @@
 				vm.loadTemplate=vm.productsTemplate;
 			}else if(param == "contact"){
 				vm.loadTemplate=vm.contactTemplate;
+			}else if(param == "profile"){
+				vm.loadTemplate=vm.profiletemplate;
 			}
 		};
 		

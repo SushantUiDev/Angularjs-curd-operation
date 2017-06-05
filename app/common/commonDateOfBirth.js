@@ -6,8 +6,9 @@
 			link: function (scope, element, attrs) {
               
 			  element.datepicker();
-				
- 
+				console.log(scope);
+				console.log(element);
+				console.log(attrs);
 			}
 		}
 	}
